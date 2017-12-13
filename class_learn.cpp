@@ -6,6 +6,7 @@
 //
 #include <iostream>
 #include <cstring>
+
 using namespace std;
 //
 class person {
@@ -20,7 +21,8 @@ class person {
       void set_person_name(const char *name);
       void set_person_sex(const char *sex);
       void set_person_age(const int age);
-      virtual void print_person_info();
+      //virtual void print_person_info();
+      void print_person_info();
 };
 /*
     class person 的 构造函數
@@ -80,7 +82,7 @@ class student:public person {
         ~student();
         void learn(string const &course);
         void set_person_info(const char* name, const char *sex, const int age, int grade, const char *student_num);
-        virtual void print_person_info(); 
+        void print_person_info(); 
 };
 /*
     在构造函数中可以进行初始化操作
@@ -88,7 +90,7 @@ class student:public person {
 student::student()
 {
     memset(stu_num, 0, sizeof(stu_num));
-    stu_grade = 0;
+    this->stu_grade = 0;
     cout << "student 构造函数"<<endl;
 }
 student::~student()

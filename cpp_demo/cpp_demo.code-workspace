@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "D:\\workspace\\try_everything\\cpp_study"
+		},
+		{
+			"path": "D:\\workspace\\try_everything\\cpp_study\\print_test"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"system_error": "cpp",
+			"xlocale": "cpp",
+			"iostream": "cpp",
+			"xstring": "cpp"
+		}
+	}
+}
