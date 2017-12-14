@@ -1,6 +1,5 @@
-
-SRC += ./class_stock.cpp
-SRC += ./stock_test.cpp
+SRC += ./class_time.cpp
+SRC += ./class_time_test.cpp
 INC += -I./
 
 CPPFLAGS += ${INC} 
@@ -10,8 +9,8 @@ CC = g++
 %.o: %.c
 	${CC} ${CPPFLAGS} -c $< -o $@
 	
-hahaha.exe:${SRC}
+time_test.bin:${SRC}
 	g++  ${CPPFLAGS} $^ -o $@
 
 clean:
-	rm *.exe -rf
+	rm *.exe *.bin -rf

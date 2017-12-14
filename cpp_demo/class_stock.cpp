@@ -6,7 +6,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
-
+static int class_demo_cnt = 0;
 void Stock::acquire(const std::string &co, long n, double pr)
 {
     company = co;
@@ -53,17 +53,55 @@ void Stock::update(double price){
         set_tot();
     }
 }
-void Stock::show(){
+void Stock::show() const
+{
     std::cout << "\tCompany\tshares\tshare price\ttotal worth\n";
     std::cout <<"\t"<<company<<"\t"<<shares<<"\t"<<share_val<<"\t"<<total_val<<endl;
 }
 
+const Stock & Stock::topval(const Stock&s) const
+{
+    if(s.total_val > this->total_val) {
+        return s;
+    }
+    else {
+        return *this;
+    }
+}
+std::string Stock::get_company()
+{
+    return company;
+}
 Stock::Stock()
 {
-    std::cout << "构造函数" << endl;
+    class_demo_cnt ++;
+    std::cout << "构造函数 " << class_demo_cnt << endl;
+    
 }
-
+Stock::Stock(const std::string &co, long n, double pr) 
+{
+    class_demo_cnt ++;
+    std::cout << "构造函数 " << class_demo_cnt << endl;
+    company = co;
+    if(n < 0) {
+        std::cout << "invalid n:" << pr << endl;
+        shares = n;
+    }
+    else {
+        shares = n;
+    }
+    if(share_val < 0) {
+        std::cout << "inbalid price :" << pr << endl;
+        share_val = 0;
+    }
+    else {
+        share_val = pr;
+    }
+    set_tot();
+}
 Stock::~Stock()
 {
-    std::cout << "析构函数" << endl;
+    class_demo_cnt--;
+    std::cout << "析构函数" << class_demo_cnt << endl;
 }
+

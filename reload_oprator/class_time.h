@@ -1,0 +1,25 @@
+#ifndef CLASS_TIME_H_
+#define CLASS_TIME_H_
+/*
+    class time
+    通过timer类研究运算符重载
+        1，oprator +/-/\*
+*/
+class Time {
+private:
+    int hours;
+    int minutes;
+public:
+    Time();
+    Time(int h = 0, int m = 0);
+    ~Time();
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+    Time operator + (const Time &t) const;
+    Time operator - (const Time &t) const;
+    Time operator * (double n) const;
+    void Show();
+};
+
+#endif 
